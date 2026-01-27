@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form and validation</title>
+</head>
+<body bgcolor="#B0E0E6">
+    <H1>FORM</H1>
+    <fieldset>
+    <form onsubmit="return validateform()" action="Formsub.html">
+        Name:<input type="text" placeholder="Enter your name" id="name" required >
+        <br><br>
+        Roll NO. <input type="text" placeholder="Enter your Roll No."  id="rollno">
+        <br><br>
+        email<input type="email" placeholder="Enter your email" id="email" >
+        <br><br>
+        Password<input type="password" placeholder="Enter your Passwod." >
+        <br><br>
+        Date<input type="date">
+        <br><br>
+        Favourite Color<input type="color">
+        <br><br>
+        Age<input type="number" placeholder="Enter your Age">
+        <br><br>
+        College code<input type="hidden" value="134abc">
+        <br><br>
+        Address:<textarea name="address" rows="2" cols="10">Enter your address here</textarea>
+        <br><br>
+        Gender<br>
+        <label><input type="radio" name="gender" value="Male">Male</label>
+        <label><input type="radio" name="gender" value="Female">Female</label>
+        <label><input type="radio" name="gender" value="Other">Other</label>
+        <br><br>
+        Favourite Language<br>
+        <input type="checkbox" name="Favourite Language" value="Python">Python
+        <input type="checkbox" name="Favourite Language" value="c++">c++
+        <input type="checkbox" name="Favourite Language" value="Java">Java
+        <br><br>
+        Choose state
+        <select>
+            <option>U.P.</option>
+            <option>Haryana</option>
+            <option>Punjab</option>
+        </select>
+        <br><br>
+        <input type="button" name="button" value="Help" />
+        <br><br>
+        <input type="reset" name="reset"/>
+        <input type="submit" name="submit"/>
+        
+
+
+    </form>
+    </fieldset>
+    <script>
+        function validateform(){
+            let name=document.getElementById("name").value.trim();
+            let roll=document.getElementById("rollno").value.trim();
+            let email=document.getElementById("email").value.trim();
+
+            let namepattern=/^[A-Za-z]+$/ ;
+            let rollpattern=/^[0-9]+$/ ;
+            let emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!namepattern.test(name)){
+                alert("Invalid Name");
+                return false;
+            }
+            if(!rollpattern.test(roll)){
+                alert("Invalid roll number");
+                return false;
+            }
+            if(!emailpattern.test(email)){
+                alert("Invalid email");
+                return false;
+            }
+
+        }
+    </script>
+</body>
+</html>
