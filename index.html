@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam Message Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <div class="container">
+            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" class="icon">
+
+            <h1>Spam Message Detector</h1>
+            <p class="subtitle">Detect whether a message is spam or not using Machine Learning</p>
+
+            <form action="/predict" method="POST">
+                <textarea name="message" placeholder="Enter your message here..." required>{{ message }}</textarea>
+                <button type="submit">Check for Spam</button>
+            </form>
+
+            {% if prediction %}
+              <div class="result {{ result_class }}">
+
+                <!-- <div class="result {{ prediction|lower }}"> -->
+                    <strong>Result:</strong> {{ prediction }}
+                </div>
+            {% endif %}
+        </div>
+
+    </div>
+
+</body>
+</html>
